@@ -1,0 +1,19 @@
+menu "Neutron Monitor ESP32"
+
+    config WIFI_SSID
+        string "SSID"
+        default "WifiName"
+
+    config WIFI_PASSWORD
+        string "PASSWORD"
+        default "Password"
+
+    config MQTT_HOST
+        string "BROKER"
+        default "my broker"
+        
+    config MQTT_PORT
+        string "1883"
+        default "1883"
+
+endmenu
