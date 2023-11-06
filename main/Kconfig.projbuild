@@ -23,7 +23,5 @@ menu "Neutron Monitor ESP32"
     config OTA_HASH
         string "OTA hash file URL"
         default ""
-
-    config 
-
+        
 endmenu
