@@ -17,8 +17,7 @@ jobs:
 
           - name: Build
             run: |
-                  tar cf - ./main | sha256sum | cut -d ' ' -f1 > certificate/hash 
-                  echo "${{ secrets.SDKCONFIG }}" | base64 -d | gunzip > sdkconfig
+                  echo "${{ secrets.SDKCONFIG }}" > sdkconfig
                   git clone https://github.com/UncleRus/esp-idf-lib $IDF_PATH/esp-idf-lib
                   . $IDF_PATH/export.sh
                   idf.py fullclean
