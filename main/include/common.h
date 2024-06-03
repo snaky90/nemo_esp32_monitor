@@ -16,6 +16,7 @@ xQueueHandle telemetry_q;
 void task_meteo(void *args);
 void message_sender(void *args);
 void task_pcnt(void *args);
+void task_ota(void *args);
 
 
 //Funciones de inicio de caracteristicas de la placa
