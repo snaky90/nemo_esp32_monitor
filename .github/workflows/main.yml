@@ -10,7 +10,7 @@ on:
 jobs:
     builder:
         runs-on: ubuntu-latest
-        container: espressif/idf:v4.4.6
+        container: espressif/idf:v4.4
         steps:
           - name: Chechout code
             uses: actions/checkout@v2
