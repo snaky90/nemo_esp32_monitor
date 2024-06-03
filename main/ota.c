@@ -49,6 +49,32 @@ void get_hash(){
     };
     esp_http_client_handle_t client = esp_http_client_init(&config);
     esp_err_t err = esp_http_client_perform(client);
+    // Comprueba si la solicitud HTTP se realizó correctamente
+    if (err == ESP_OK) {
+        // Obtiene el código de estado de la respuesta HTTP
+        int status_code = esp_http_client_get_status_code(client);
+        // Si el código de estado es 200 (OK), procesa la respuesta
+        if (status_code == 200) {
+            char buffer[65]; // Buffer para almacenar el hash
+            int content_length = esp_http_client_get_content_length(client);
+            if (content_length < sizeof(buffer)) {
+                int read = esp_http_client_read(client, buffer, content_length);
+                if (read == content_length) {
+                    buffer[read] = '\0'; // Asegura que el buffer es una cadena terminada en null
+                    ESP_LOGI("OTA", "Received hash: %s", buffer);
+                    // Aquí puedes almacenar el hash recibido para su uso posterior
+                } else {
+                    ESP_LOGE("OTA", "Error reading hash");
+                }
+            } else {
+                ESP_LOGE("OTA", "Hash is too long");
+            }
+        } else {
+            ESP_LOGE("OTA", "HTTP request failed with status code %d", status_code);
+        }
+    } else {
+        ESP_LOGE("OTA", "HTTP request failed with error %d", err);
+    }
     esp_http_client_cleanup(client);
 }
 
