@@ -25,5 +25,6 @@ void app_main(void)
   xTaskCreatePinnedToCore(&message_sender, "Message Sender", 1024 * 3, NULL, 5, NULL, 0);
   xTaskCreatePinnedToCore(&task_pcnt, "Pulse Counter", 1024 * 3, NULL, 1, NULL, 1);
   xTaskCreatePinnedToCore(&task_meteo, "Meteo Data", 1024 * 3, NULL, 5, NULL, 0);
-
+  xTaskCreatePinnedToCore(&task_ota, "OTA handling", 1024 * 8, NULL, 5, NULL, 0);
+  
 }

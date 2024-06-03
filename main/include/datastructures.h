@@ -1,5 +1,5 @@
-#ifndef __DATASTRUCTURES__H_
-#define __DATASTRUCTURES__H_
+#ifndef __DATASTRUCTURES__H__
+#define __DATASTRUCTURES__H__
 
 
 #define TM_METEO 1

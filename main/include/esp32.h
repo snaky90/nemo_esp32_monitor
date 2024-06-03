@@ -12,6 +12,8 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/semphr.h"
 #include "freertos/task.h"
+#include "esp_https_ota.h"
+#include "esp_http_client.h"
 
 //Especificas para componentes ESP32
 #include "esp_wifi.h"
